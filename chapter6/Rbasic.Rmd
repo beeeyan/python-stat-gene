@@ -102,7 +102,108 @@ x + 1
 x * 2
 ```
 
+```{r}
+x <- c(1,2,3,4,5,6,7,8,9,10)
 
+mean(x)
+sum(x)
+var(x)
+sd(x)
+```
+```{r}
+log(10)
+
+log(10, base = 10)
+log10(10)
+
+exp(1)
+exp(log(10))
+
+abs(-4)
+
+log(x)
+
+```
+
+```{r}
+Calc <- function(x, y, z = 4){
+  # 複数の値を入力する場合はcにいれる
+  mini <- min(c(x ,y, z));
+  medi <- median(c(x, y, z));
+  maxi <- max(c(x, y, z));
+  answer <- mini * medi^maxi;
+  return(answer)
+}
+
+Calc(6, 2, 4)
+
+2*4^6
+
+# エラー
+Calc(6, 2)
+
+Calc(x = 6, y = 2)
+Calc(6, 2, 5)
+
+```
+
+if
+```{r}
+i = 15
+
+if(i>10 & i<=20){
+  print(i)
+}
+
+if(i>10 & i<=20) print(i)
+
+
+```
+
+for
+```{r}
+for(i in 1:10){
+  print(i)
+}
+```
+```{r}
+for(i in 1:100){
+  if(i>=10 & i<=15 | i%%17 == 0){
+    print(i)
+  }
+  
+}
+
+```
+forを使わないプログラミング
+```{r}
+x <- 1:10
+
+for(i in 1:10){
+  print(x[i]*2)
+}
+
+print(x*2)
+
+```
+
+ファイルの読み書き
+```{r}
+# ファイルの場所にsetwd()する
+Data <- read.table(file = "booksample/GeneExpression_example.txt",
+                   header = TRUE, sep="\t")
+
+Data
+```
+```{r}
+Data[1,1]
+Data[,2]
+median(Data[,2])
+```
+```{r}
+write.table(Data[,1:5], file="booksample/Geneexpression_out.txt", sep="\t")
+write.table(Data[,1:5], file="booksample/GGeneexpression_out.csv", sep=",")
+```
 
 
 

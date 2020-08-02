@@ -1,0 +1,90 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+割とコピペ
+t検定
+```{r}
+x <- c(0.61, 0.65, 0.20, 0.60, 0.30, 0.06, 0.00, 0.34, 0.69, 0.91, 1.00, 0.10, 0.63, 0.72, 0.83, 0.02, 0.60, 0.40, 0.19, 0.91);
+y <- c(0.79, 0.71, 0.94, 0.79, 0.98, 0.13, 0.94, 0.64, 0.74, 0.86, 0.70, 1.05, 0.87, 0.43, 0.89, 0.93, 0.72, 0.77, 0.56, 0.24);
+
+t.test(x, y);
+
+t.test(x, y, paired=T);
+
+t.test(x, y, paired=F, var.equal=T);
+```
+```{r}
+hist(x)
+hist(y)
+```
+
+
+
+```{r}
+var.test(x, y)
+```
+
+相関係数の確認,pearson", "kendall", "spearman"
+```{r}
+x <- c(0.45, 0.12, 0.89, 0.41, 0.38, 0.14, 0.48, 0.32, 0.47, 0.51);
+y <- c(0.52, 0.15, 1.05, 0.17, 0.21, 0.05, 0.71, 0.19, 0.70, 0.68);
+
+cor.test(x, y, method="pearson");
+
+cor.test(x, y, method="spearman");
+plot(x, y)
+```
+回帰分析
+```{r}
+x <- c(0.30, 0.57, 0.68, 0.60, 0.85, 0.77, 0.42, 0.60, 0.40, 0.54, 0.80, 0.71, 0.74, 0.43, 0.52, 0.75, 0.70, 0.86, 0.47, 0.38);
+y <- c(0.28, 0.77, 0.46, 0.36, 0.84, 0.84, 0.29, 0.36, 0.16, 0.73, 1.03, 0.85, 0.57, 0.44, 0.23, 0.54, 0.60, 0.89, 0.75, 0.34);
+z <- c(0.15, 0.89, 0.67, 0.52, 0.85, 1.10, 0.15, 0.57, 0.18, 0.63, 0.96, 0.65, 0.59, 0.50, 0.30, 0.76, 0.38, 0.71, 0.93, 0.16);
+
+x2 <- c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+
+summary(lm(x~y));
+
+summary(lm(x~y+z));
+
+summary(glm(x2~y, family="binomial"));
+```
+
+分割表
+```{r}
+x <- matrix(c(200,150,170,180), ncol=2);
+x;
+```
+```{r}
+# 分割表の値が5を超える値を取るので補正は必要ない
+chisq.test(x, correct=F);
+# 少しPCの負荷が多い。
+fisher.test(x);
+```
+
+グラフの描画
+```{r}
+x <- rnorm(1000);
+y <- rnorm(1000);
+plot(x, y)
+plot(x, y, col=4, pch=16, xlab="x values", ylab="y values", xlim=c(-4, 4), ylim=c(-4, 4), main="Co-plots of the values", cex.lab=1.5, cex.main=1.5, cex.axis=1.5, cex=1.2);grid();abline(h=0);abline(v=0);legend("topright", col=4, pch=16, legend="values", cex=1.5);
+```
+```{r}
+library(MASS);
+
+x <- rnorm(1000);
+truehist(x);
+
+# pngで出力
+png(file="ExamplePlot.png", width=500, height=500);
+truehist(x);
+dev.off();
+
+# pdfで出力
+pdf(file="ExamplePlot.pdf");
+truehist(x);
+dev.off();
+```
+
+
+
