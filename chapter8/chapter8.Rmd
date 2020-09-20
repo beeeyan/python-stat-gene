@@ -1,0 +1,26 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+グラフの出力（今のところうまく言っていない）
+```{r}
+setwd("/Users/sabe/various/github/python-stat-gene/chapter8/booksample/GenomeData_2/1KG_EUR");
+library(MASS);
+
+file <- "1KG_EUR_QC_Pheno1.assoc.logistic.P.txt";
+#	file <- "1KG_EUR_QC_MDS1.assoc.linear.P.txt";
+#	file <- "1KG_EUR_QC_Exp_BLK.assoc.linear.P.txt";
+table <-read.table(file, header=TRUE);
+P <- table[,3];
+
+png(file="1KG_EUR_QC_Pheno1.assoc.logistic.P.hist.png", width = 600, height = 600);
+#	png(file="1KG_EUR_QC_MDS1.assoc.linear.P.hist.png", width = 600, height = 600);
+#	png(file="1KG_EUR_QC_Exp_BLK.assoc.linear.P.hist.png", width = 600, height = 600);
+truehist(P, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, main="Histogram of GWAS P-values", xlab="P-values", ylab="");
+dev.off();
+
+```
+
+
+
