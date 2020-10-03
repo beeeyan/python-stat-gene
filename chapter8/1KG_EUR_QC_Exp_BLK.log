@@ -1,0 +1,26 @@
+PLINK v1.90p 64-bit (16 Jun 2020)
+Options in effect:
+  --bfile ./booksample/GenomeData_2/1KG_EUR/1KG_EUR_QC
+  --ci 0.95
+  --linear
+  --out 1KG_EUR_QC_Exp_BLK
+  --pheno ./booksample/GenomeData_2/1KG_EUR/Exp_BLK.txt
+
+Hostname: beeeyans-MacBook-Pro.local
+Working directory: /Users/sabe/various/github/python-stat-gene/chapter8
+Start time: Sat Oct  3 14:06:09 2020
+
+Random number seed: 1601701569
+8192 MB RAM detected; reserving 4096 MB for main workspace.
+1349118 variants loaded from .bim file.
+381 people (178 males, 203 females) loaded from .fam.
+348 phenotype values present after --pheno.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 381 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+1349118 variants and 381 people pass filters and QC.
+Phenotype data is quantitative.
+Writing linear model association results to 1KG_EUR_QC_Exp_BLK.assoc.linear ...
+done.
+
+End time: Sat Oct  3 14:06:32 2020
